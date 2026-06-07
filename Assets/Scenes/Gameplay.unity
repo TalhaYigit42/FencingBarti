@@ -184,7 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winsToWin: 3
-  battleMusic: {fileID: 0}
+  battleMusic: {fileID: 8300000, guid: 315c1d6287afcea4fb417657f11808f1, type: 3}
+  roundResetDelay: 0.2
+  medievalBoardSprite: {fileID: 3701250841275472991, guid: 82bfe79fa7be8225bb5052f106e5c739, type: 3}
+  medievalRibbonSprite: {fileID: -6108517423855348156, guid: 82bfe79fa7be8225bb5052f106e5c739, type: 3}
 --- !u!1 &546407656
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +230,7 @@ MonoBehaviour:
   player1Parry: {fileID: -6652828090347947343, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   player1Lunge: {fileID: 6276339513826019528, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   player1Feint: {fileID: -975458271487924830, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  startPos: {x: -6, y: -2.7}
+  startPos: {x: -7.12, y: -3.26}
   moveSpeed: 1.5
   sprintSpeed: 3
   lungeSpeed: 8
@@ -240,6 +243,18 @@ MonoBehaviour:
   sprintSound: {fileID: 8300000, guid: 98acef8a597fe0741a63b277bd407f6a, type: 3}
   attackSound: {fileID: 8300000, guid: e3a4f02eaea2be742b8be8606ea86656, type: 3}
   lungeSound: {fileID: 8300000, guid: 3f3d08467ea75604a87c729dc1b09792, type: 3}
+  walkStepInterval: 0.4
+  sprintStepInterval: 0.25
+  arenaLeftEdge: -6.8
+  arenaRightEdge: 6.8
+  minimumSpacing: 1.15
+  pokeWindup: 0.18
+  pokeActiveTime: 0.08
+  pokeRecovery: 0.14
+  parryStartup: 0.04
+  parryActiveTime: 0.2
+  parryRecovery: 0.14
+  stunDuration: 0.4
 --- !u!212 &546407658
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -304,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 546407656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -2.7, z: 0}
+  m_LocalPosition: {x: -7.12, y: -3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -375,8 +390,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.3, y: 0.34}
-    oldSize: {x: 2.56, y: 2.0339646}
+    pivot: {x: 0.31, y: 0.21}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -418,7 +433,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -515,7 +530,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -628,7 +643,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750726472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1006,7 +1021,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1091,7 +1106,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1211438697}
   - component: {fileID: 1211438696}
-  - component: {fileID: 1211438698}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1169,20 +1183,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1211438698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211438695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a972b342a320643b76cecf69ce8d6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winsToWin: 3
-  battleMusic: {fileID: 8300000, guid: 315c1d6287afcea4fb417657f11808f1, type: 3}
 --- !u!1 &1246852879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1270,7 @@ Transform:
   m_GameObject: {fileID: 1246852879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -2.7, z: 0}
+  m_LocalPosition: {x: 7, y: -3.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1341,8 +1341,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4799999, y: 1.4728711}
+    pivot: {x: 0.69, y: 0.21}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   player2Parry: {fileID: -9166295559842413507, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   player2Lunge: {fileID: -5604555234885036135, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   player2Feint: {fileID: 285069103949983882, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  startPos: {x: 6, y: -2.7}
+  startPos: {x: 7, y: -3.28}
   moveSpeed: 1.5
   sprintSpeed: 3
   lungeSpeed: 8
@@ -1382,6 +1382,18 @@ MonoBehaviour:
   sprintSound: {fileID: 8300000, guid: 98acef8a597fe0741a63b277bd407f6a, type: 3}
   attackSound: {fileID: 8300000, guid: e3a4f02eaea2be742b8be8606ea86656, type: 3}
   lungeSound: {fileID: 8300000, guid: 3f3d08467ea75604a87c729dc1b09792, type: 3}
+  walkStepInterval: 0.4
+  sprintStepInterval: 0.25
+  arenaLeftEdge: -6.8
+  arenaRightEdge: 6.8
+  minimumSpacing: 1.15
+  pokeWindup: 0.18
+  pokeActiveTime: 0.08
+  pokeRecovery: 0.14
+  parryStartup: 0.04
+  parryActiveTime: 0.2
+  parryRecovery: 0.14
+  stunDuration: 0.4
 --- !u!95 &1246852885
 Animator:
   serializedVersion: 7
@@ -1416,7 +1428,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1513,7 +1525,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1639,7 +1651,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853251342}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

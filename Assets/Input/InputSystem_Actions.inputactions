@@ -180,6 +180,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9462d0bc-fb11-45f7-b86d-f12041772b17",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "44044cab-441a-4069-835a-d6a838f89972",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
@@ -191,8 +202,30 @@
                 },
                 {
                     "name": "",
+                    "id": "7fcf4ab0-e9db-4cd2-a252-a0fcfc7fe842",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6b2f259c-2186-47e3-8ab9-5463379539e1",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8d5fc93-0fb0-48d5-a3be-14870ac59b3c",
+                    "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -224,6 +257,17 @@
                 },
                 {
                     "name": "",
+                    "id": "39196057-66ea-4db5-ad9f-4ea5864f9105",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a76f3caa-dea2-4930-8f02-a0ca7bdf3ce0",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
@@ -237,6 +281,17 @@
                     "name": "",
                     "id": "261657ef-f982-4e96-a2e6-77f0fe296bcc",
                     "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Parry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e630dd8-9789-419f-a975-aea8ec104ed0",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -279,8 +334,30 @@
                 },
                 {
                     "name": "",
+                    "id": "d2253c4e-ea75-4d0f-a621-22efb17d32ff",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Lunge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b8c9d0e1-f2a3-4567-1234-678901234567",
                     "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2Feint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3311bb6f-2615-4445-a96f-e63c50d9403e",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
