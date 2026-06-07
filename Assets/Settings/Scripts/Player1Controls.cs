@@ -1,6 +1,6 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 public class Player1Controls : MonoBehaviour
 {
@@ -30,6 +30,19 @@ public class Player1Controls : MonoBehaviour
     public float walkStepInterval = 0.4f;
     public float sprintStepInterval = 0.25f;
 
+    [SerializeField] private float arenaLeftEdge = -6.8f;
+    [SerializeField] private float arenaRightEdge = 6.8f;
+    [SerializeField] private float minimumSpacing = 1.15f;
+    [SerializeField] private float pokeWindup = 0.18f;
+    [SerializeField] private float pokeActiveTime = 0.08f;
+    [SerializeField] private float pokeRecovery = 0.14f;
+    [SerializeField] private float parryStartup = 0.04f;
+    [SerializeField] private float parryActiveTime = 0.2f;
+    [SerializeField] private float parryRecovery = 0.14f;
+    [SerializeField] private float stunDuration = 0.4f;
+
+    private const float PixelSnapFactor = 100f;
+
     private bool isAttacking;
     private bool isParrying;
     private bool isMobile;
@@ -39,6 +52,13 @@ public class Player1Controls : MonoBehaviour
     private Coroutine parryCoroutine;
     private Coroutine footstepCoroutine;
     private bool lastSprinting;
+    private int pokeCount;
+    private int lungeCount;
+    private int parryCount;
+
+    public int PokeCount => pokeCount;
+    public int LungeCount => lungeCount;
+    public int ParryCount => parryCount;
 
     void Awake()
     {
@@ -48,220 +68,394 @@ public class Player1Controls : MonoBehaviour
 
     void Start()
     {
-        player1Left.action.Enable();
-        player1Right.action.Enable();
-        player1Sprint.action.Enable();
-        player1Attack.action.Enable();
-        player1Parry.action.Enable();
-        player1Lunge.action.Enable();
-        player1Feint.action.Enable();
+        EnableActions();
 
         isAttacking = false;
         isParrying = false;
         isMobile = true;
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        if (footstepSource != null)
+            footstepSource.playOnAwake = false;
+
+        if (sfxSource != null)
+            sfxSource.playOnAwake = false;
+
+        Restart();
+    }
+
+    void OnDisable()
+    {
+        DisableActions();
     }
 
     void Update()
     {
+        if (UIController.Instance != null && UIController.Instance.IsRoundLocked)
+        {
+            UpdateAnimator(false, false, false);
+            StopFootsteps();
+            return;
+        }
+
         bool movingLeft = player1Left.action.IsPressed() && isMobile;
         bool movingRight = player1Right.action.IsPressed() && isMobile;
-        bool sprinting = player1Sprint.action.IsPressed() && isMobile;
+        bool sprinting = player1Sprint.action.IsPressed() && isMobile && (movingLeft || movingRight);
 
-        animator.SetBool("moving_backward", movingLeft);
-        animator.SetBool("moving_forward", movingRight);
-        animator.SetBool("sprint", sprinting);
+        UpdateAnimator(movingLeft, movingRight, sprinting);
 
+        float direction = 0f;
         if (movingLeft)
-        {
-            float speed = sprinting ? sprintSpeed : moveSpeed;
-            transform.position = (Vector2)transform.position + Vector2.left * speed * Time.deltaTime;
-        }
+            direction -= 1f;
         if (movingRight)
+            direction += 1f;
+
+        if (Mathf.Abs(direction) > 0f)
         {
             float speed = sprinting ? sprintSpeed : moveSpeed;
-            transform.position = (Vector2)transform.position + Vector2.right * speed * Time.deltaTime;
+            MoveHorizontally(direction * speed * Time.deltaTime);
         }
 
-        HandleFootsteps(movingLeft || movingRight, sprinting);
+        HandleFootsteps(Mathf.Abs(direction) > 0f, sprinting);
 
-        if (player1Attack.action.WasPressedThisFrame() && !isAttacking && isMobile)
+        if (player1Attack.action.WasPressedThisFrame() && CanStartOffensiveAction())
         {
-            animator.SetTrigger("attack");
+            pokeCount++;
+            SetAttackAnimation();
             attackCoroutine = StartCoroutine(Attack());
         }
-        if (player1Parry.action.WasPressedThisFrame() && !isParrying && isMobile)
+
+        if (player1Parry.action.WasPressedThisFrame() && CanStartDefensiveAction())
         {
-            animator.SetTrigger("parry");
+            parryCount++;
+            SetParryAnimation();
             parryCoroutine = StartCoroutine(Parry());
         }
-        if (player1Lunge.action.WasPressedThisFrame() && !isAttacking && isMobile)
+
+        if (player1Lunge.action.WasPressedThisFrame() && CanStartOffensiveAction())
         {
-            animator.SetTrigger("attack");
+            lungeCount++;
+            SetAttackAnimation();
             attackCoroutine = StartCoroutine(Lunge());
         }
-        if (player1Feint.action.WasPressedThisFrame() && !isAttacking && isMobile)
+
+        if (player1Feint.action.WasPressedThisFrame() && CanStartOffensiveAction())
         {
-            animator.SetTrigger("attack");
+            SetAttackAnimation();
             attackCoroutine = StartCoroutine(Feint());
         }
+
+        SnapToPixelGrid();
     }
 
-    void HandleFootsteps(bool moving, bool sprinting)
+    public void ReceiveHitFromPlayer2(Player2Controls attacker)
     {
-        if (footstepSource == null) return;
+        if (attacker == null || UIController.Instance == null || UIController.Instance.IsRoundLocked)
+            return;
+
+        if (isParrying)
+        {
+            StartCoroutine(attacker.Stun());
+            return;
+        }
+
+        UIController.Instance.ResolveRound(2, this, attacker);
+    }
+
+    public void Restart()
+    {
+        ResetState(Color.white, true);
+        transform.position = startPos;
+        SnapToPixelGrid();
+    }
+
+    public void PrepareForRoundReset()
+    {
+        ResetState(Color.white, true);
+    }
+
+    public IEnumerator Stun()
+    {
+        ResetState(Color.red, false);
+        yield return new WaitForSeconds(stunDuration);
+        sr.color = Color.white;
+        isMobile = true;
+        PlayIdleAnimation();
+        SnapToPixelGrid();
+    }
+
+    private void EnableActions()
+    {
+        Enable(player1Left);
+        Enable(player1Right);
+        Enable(player1Sprint);
+        Enable(player1Attack);
+        Enable(player1Parry);
+        Enable(player1Lunge);
+        Enable(player1Feint);
+    }
+
+    private void DisableActions()
+    {
+        Disable(player1Left);
+        Disable(player1Right);
+        Disable(player1Sprint);
+        Disable(player1Attack);
+        Disable(player1Parry);
+        Disable(player1Lunge);
+        Disable(player1Feint);
+    }
+
+    private static void Enable(InputActionReference actionReference)
+    {
+        actionReference?.action?.Enable();
+    }
+
+    private static void Disable(InputActionReference actionReference)
+    {
+        actionReference?.action?.Disable();
+    }
+
+    private bool CanStartOffensiveAction()
+    {
+        return isMobile && !isAttacking && !isParrying;
+    }
+
+    private bool CanStartDefensiveAction()
+    {
+        return isMobile && !isAttacking && !isParrying;
+    }
+
+    private void MoveHorizontally(float delta)
+    {
+        Vector3 current = transform.position;
+        float nextX = current.x + delta;
+        float rightLimit = arenaRightEdge;
+
+        if (p2 != null)
+            rightLimit = Mathf.Min(rightLimit, p2.transform.position.x - minimumSpacing);
+
+        current.x = Mathf.Clamp(nextX, arenaLeftEdge, rightLimit);
+        transform.position = current;
+    }
+
+    private void HandleFootsteps(bool moving, bool sprinting)
+    {
+        if (footstepSource == null)
+            return;
 
         if (moving)
         {
             if (footstepCoroutine == null || lastSprinting != sprinting)
             {
-                if (footstepCoroutine != null) StopCoroutine(footstepCoroutine);
+                if (footstepCoroutine != null)
+                    StopCoroutine(footstepCoroutine);
+
                 lastSprinting = sprinting;
                 footstepCoroutine = StartCoroutine(FootstepLoop(sprinting));
             }
         }
-        else if (footstepCoroutine != null)
+        else
         {
-            StopCoroutine(footstepCoroutine);
-            footstepCoroutine = null;
-            footstepSource.Stop();
+            StopFootsteps();
         }
     }
 
-    IEnumerator FootstepLoop(bool sprinting)
+    private void StopFootsteps()
+    {
+        if (footstepCoroutine != null)
+        {
+            StopCoroutine(footstepCoroutine);
+            footstepCoroutine = null;
+        }
+
+        if (footstepSource != null)
+            footstepSource.Stop();
+    }
+
+    private IEnumerator FootstepLoop(bool sprinting)
     {
         while (true)
         {
             AudioClip clip = sprinting ? sprintSound : walkSound;
             float interval = sprinting ? sprintStepInterval : walkStepInterval;
             float vol = AudioManager.Instance != null ? AudioManager.Instance.SfxVolume : 1f;
-            if (clip != null) footstepSource.PlayOneShot(clip, vol);
+
+            if (clip != null)
+                footstepSource.PlayOneShot(clip, vol);
+
             yield return new WaitForSeconds(interval);
         }
     }
 
-    IEnumerator Attack()
+    private IEnumerator Attack()
     {
-        isAttacking = true;
-        isMobile = false;
+        BeginAction();
+        PlaySfx(attackSound);
 
-        float vol = AudioManager.Instance != null ? AudioManager.Instance.SfxVolume : 1f;
-        if (sfxSource != null && attackSound != null)
-            sfxSource.PlayOneShot(attackSound, vol);
+        yield return new WaitForSeconds(pokeWindup);
+        SetHitboxActive(true);
 
-        yield return new WaitForSeconds(0.22f);
+        yield return new WaitForSeconds(pokeActiveTime);
+        SetHitboxActive(false);
 
-        if (p1Hitbox != null)
-            p1Hitbox.SetActive(true);
-
-        yield return new WaitForSeconds(0.05f);
-
-        if (p1Hitbox != null)
-            p1Hitbox.SetActive(false);
-
-        yield return new WaitForSeconds(0.13f);
-        isAttacking = false;
-        isMobile = true;
+        yield return new WaitForSeconds(pokeRecovery);
+        EndAction();
     }
 
-    IEnumerator Lunge()
+    private IEnumerator Lunge()
     {
-        isAttacking = true;
-        isMobile = false;
+        BeginAction();
+        PlaySfx(lungeSound);
 
-        float vol = AudioManager.Instance != null ? AudioManager.Instance.SfxVolume : 1f;
-        if (sfxSource != null && lungeSound != null)
-            sfxSource.PlayOneShot(lungeSound, vol);
-
-        yield return new WaitForSeconds(0.1f);
-
-        if (p1Hitbox != null)
-            p1Hitbox.SetActive(true);
+        yield return new WaitForSeconds(0.08f);
+        SetHitboxActive(true);
 
         float elapsed = 0f;
         while (elapsed < lungeDuration)
         {
-            transform.position = (Vector2)transform.position + Vector2.right * lungeSpeed * Time.deltaTime;
+            MoveHorizontally(lungeSpeed * Time.deltaTime);
+            SnapToPixelGrid();
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        if (p1Hitbox != null)
-            p1Hitbox.SetActive(false);
+        SetHitboxActive(false);
 
-        yield return new WaitForSeconds(0.25f);
-        isAttacking = false;
-        isMobile = true;
+        yield return new WaitForSeconds(0.2f);
+        EndAction();
     }
 
-    IEnumerator Feint()
+    private IEnumerator Feint()
+    {
+        BeginAction();
+        PlaySfx(attackSound);
+        yield return new WaitForSeconds(pokeWindup + 0.08f);
+        EndAction();
+    }
+
+    private IEnumerator Parry()
+    {
+        StopFootsteps();
+        isMobile = false;
+
+        yield return new WaitForSeconds(parryStartup);
+        isParrying = true;
+
+        if (sr != null)
+            sr.color = Color.blue;
+
+        yield return new WaitForSeconds(parryActiveTime);
+        isParrying = false;
+
+        if (sr != null)
+            sr.color = Color.white;
+
+        yield return new WaitForSeconds(parryRecovery);
+        isMobile = true;
+        parryCoroutine = null;
+        PlayIdleAnimation();
+    }
+
+    private void BeginAction()
     {
         isAttacking = true;
         isMobile = false;
+        StopFootsteps();
+    }
 
-        // Mirrors attack startup timing — no hitbox ever activates
-        yield return new WaitForSeconds(0.22f);
-
-        yield return new WaitForSeconds(0.1f);
+    private void EndAction()
+    {
+        SetHitboxActive(false);
         isAttacking = false;
         isMobile = true;
+        attackCoroutine = null;
+        PlayIdleAnimation();
     }
 
-    IEnumerator Parry()
-    {
-        isMobile = false;
-        yield return new WaitForSeconds(0.05f);
-        isParrying = true;
-        sr.color = Color.blue;
-        yield return new WaitForSeconds(0.2f);
-        isParrying = false;
-        sr.color = Color.white;
-        yield return new WaitForSeconds(0.15f);
-        isMobile = true;
-    }
-
-    public void Hit()
-    {
-        Player2Controls p2controls = p2.GetComponent<Player2Controls>();
-        if (isParrying)
-        {
-            Player2Attack p2attack = p2.GetComponentInChildren<Player2Attack>();
-            p2attack.hasHit = false;
-            StartCoroutine(p2controls.Stun());
-            return;
-        }
-
-        UIController.Instance?.AddScore(2);
-        Restart();
-        p2controls.Restart();
-    }
-
-    public void Restart()
-    {
-        transform.position = startPos;
-    }
-
-    public IEnumerator Stun()
+    private void ResetState(Color color, bool mobileAfterReset)
     {
         if (attackCoroutine != null)
         {
             StopCoroutine(attackCoroutine);
             attackCoroutine = null;
         }
+
         if (parryCoroutine != null)
         {
             StopCoroutine(parryCoroutine);
             parryCoroutine = null;
         }
-        if (p1Hitbox != null)
-            p1Hitbox.SetActive(false);
-        isParrying = false;
-        sr.color = Color.red;
-        isMobile = false;
+
+        StopFootsteps();
+        SetHitboxActive(false);
         isAttacking = false;
-        yield return new WaitForSeconds(0.4f);
-        sr.color = Color.white;
-        isMobile = true;
+        isParrying = false;
+        isMobile = mobileAfterReset;
+
+        if (sr != null)
+            sr.color = color;
+
+        PlayIdleAnimation();
+    }
+
+    private void SetHitboxActive(bool active)
+    {
+        if (p1Hitbox != null)
+            p1Hitbox.SetActive(active);
+    }
+
+    private void PlaySfx(AudioClip clip)
+    {
+        if (sfxSource == null || clip == null)
+            return;
+
+        float vol = AudioManager.Instance != null ? AudioManager.Instance.SfxVolume : 1f;
+        sfxSource.PlayOneShot(clip, vol);
+    }
+
+    private void UpdateAnimator(bool movingLeft, bool movingRight, bool sprinting)
+    {
+        if (animator == null)
+            return;
+
+        animator.SetBool("moving_backward", movingLeft);
+        animator.SetBool("moving_forward", movingRight);
+        animator.SetBool("sprint", sprinting);
+    }
+
+    private void SetAttackAnimation()
+    {
+        if (animator == null)
+            return;
+
+        animator.ResetTrigger("parry");
+        animator.SetTrigger("attack");
+    }
+
+    private void SetParryAnimation()
+    {
+        if (animator == null)
+            return;
+
+        animator.ResetTrigger("attack");
+        animator.SetTrigger("parry");
+    }
+
+    private void PlayIdleAnimation()
+    {
+        UpdateAnimator(false, false, false);
+
+        if (animator != null)
+            animator.Play("p1_idle", 0, 0f);
+    }
+
+    private void SnapToPixelGrid()
+    {
+        Vector3 position = transform.position;
+        position.x = Mathf.Round(position.x * PixelSnapFactor) / PixelSnapFactor;
+        position.y = Mathf.Round(position.y * PixelSnapFactor) / PixelSnapFactor;
+        transform.position = position;
     }
 }

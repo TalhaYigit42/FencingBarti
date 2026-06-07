@@ -67,7 +67,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 8192
   textureSettings:
     serializedVersion: 2
     filterMode: 0
@@ -105,27 +105,27 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -136,12 +136,12 @@ TextureImporter:
       name: p1_parry_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 36
+        x: 0
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.34, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: p1_parry_1
       rect:
         serializedVersion: 2
-        x: 537
-        y: 36
+        x: 256
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.4, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: p1_parry_2
       rect:
         serializedVersion: 2
-        x: 792
-        y: 36
+        x: 512
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.4, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: p1_parry_3
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 36
+        x: 768
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.4, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: p1_parry_4
       rect:
         serializedVersion: 2
-        x: 1574
-        y: 36
+        x: 1024
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.34, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: p1_parry_5
       rect:
         serializedVersion: 2
-        x: 1593
-        y: 231
-        width: 24
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: p1_parry_6
       rect:
         serializedVersion: 2
-        x: 1830
-        y: 36
+        x: 1536
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.34, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: p1_parry_7
       rect:
         serializedVersion: 2
-        x: 294
-        y: 36
+        x: 1792
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.34, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: p1_parry_8
       rect:
         serializedVersion: 2
-        x: 1313
-        y: 36
+        x: 2048
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.36, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,12 +334,12 @@ TextureImporter:
       name: p1_parry_9
       rect:
         serializedVersion: 2
-        x: 2086
-        y: 36
+        x: 2304
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.34, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -356,12 +356,12 @@ TextureImporter:
       name: p1_parry_10
       rect:
         serializedVersion: 2
-        x: 2342
-        y: 36
+        x: 2560
+        y: 0
         width: 256
-        height: 203
+        height: 256
       alignment: 9
-      pivot: {x: 0.34, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: p1_parry_11
       rect:
         serializedVersion: 2
-        x: 2598
-        y: 36
-        width: 218
-        height: 203
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.4, y: 0.42}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
