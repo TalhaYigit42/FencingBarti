@@ -19,6 +19,19 @@ public class Player1Attack : MonoBehaviour
         TryHit(collision);
     }
 
+    public void CheckCurrentOverlap()
+    {
+        BoxCollider2D hitbox = GetComponent<BoxCollider2D>();
+        if (hitbox == null)
+            return;
+
+        Physics2D.SyncTransforms();
+        Collider2D[] overlaps = Physics2D.OverlapBoxAll(hitbox.bounds.center, hitbox.bounds.size, transform.eulerAngles.z);
+
+        foreach (Collider2D overlap in overlaps)
+            TryHit(overlap);
+    }
+
     private void TryHit(Collider2D collision)
     {
         if (hasHit)

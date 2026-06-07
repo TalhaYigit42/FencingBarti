@@ -98,7 +98,7 @@ public class AudioOptions : MonoBehaviour
         BindSliderListeners();
         RefreshMusicVolume();
 
-        if (audioOptionsPanel != null && !audioOptionsPanel.activeSelf)
+        if (audioOptionsPanel != null)
             audioOptionsPanel.SetActive(false);
 
         return audioOptionsPanel != null && musicSlider != null && sfxSlider != null;
@@ -203,6 +203,9 @@ public class AudioOptions : MonoBehaviour
             }
         }
 
+        if (audioOptionsPanel != null)
+            PositionOptionsPanel();
+
         if (audioOptionsPanel != null && musicSlider != null && sfxSlider != null)
             return;
 
@@ -213,7 +216,7 @@ public class AudioOptions : MonoBehaviour
         panelRect.anchorMin = new Vector2(0.5f, 0.5f);
         panelRect.anchorMax = new Vector2(0.5f, 0.5f);
         panelRect.pivot = new Vector2(0.5f, 0.5f);
-        panelRect.anchoredPosition = new Vector2(-480f, 0f);
+        panelRect.anchoredPosition = Vector2.zero;
         panelRect.sizeDelta = new Vector2(640f, 430f);
 
         Image panelImage = audioOptionsPanel.GetComponent<Image>();
@@ -236,6 +239,19 @@ public class AudioOptions : MonoBehaviour
 
         Button backButton = CreateButton(audioOptionsPanel.transform, "BackButton", "BACK", new Vector2(0f, -170f), styleImage, styleText);
         backButton.onClick.AddListener(CloseOptions);
+    }
+
+    void PositionOptionsPanel()
+    {
+        RectTransform panelRect = audioOptionsPanel.GetComponent<RectTransform>();
+        if (panelRect == null)
+            return;
+
+        panelRect.anchorMin = new Vector2(0.5f, 0.5f);
+        panelRect.anchorMax = new Vector2(0.5f, 0.5f);
+        panelRect.pivot = new Vector2(0.5f, 0.5f);
+        panelRect.anchoredPosition = Vector2.zero;
+        panelRect.sizeDelta = new Vector2(640f, 430f);
     }
 
     void SyncSliderValues()

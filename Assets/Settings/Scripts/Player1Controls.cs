@@ -36,6 +36,17 @@ public class Player1Controls : MonoBehaviour
     [SerializeField] private float pokeWindup = 0.18f;
     [SerializeField] private float pokeActiveTime = 0.08f;
     [SerializeField] private float pokeRecovery = 0.14f;
+    [SerializeField] private Vector2 pokeHitboxSize = new Vector2(1.45f, 0.42f);
+    [SerializeField] private float pokeHitboxForwardOffset = 0.78f;
+    [SerializeField] private float pokeHitboxVerticalOffset = 0.12f;
+    [SerializeField] private Vector2 lungeHitboxSize = new Vector2(1.85f, 0.48f);
+    [SerializeField] private float lungeHitboxForwardOffset = 1.02f;
+    [SerializeField] private Vector2 feintHitboxSize = new Vector2(2f, 0.56f);
+    [SerializeField] private float feintHitboxForwardOffset = 1.05f;
+    [SerializeField] private float feintWindup = 0.1f;
+    [SerializeField] private float feintActiveTime = 0.22f;
+    [SerializeField] private float lungeReturnDuration = 0.15f;
+    [SerializeField] private float feintDuration = 0.6f;
     [SerializeField] private float parryStartup = 0.04f;
     [SerializeField] private float parryActiveTime = 0.2f;
     [SerializeField] private float parryRecovery = 0.14f;
@@ -136,13 +147,13 @@ public class Player1Controls : MonoBehaviour
         if (player1Lunge.action.WasPressedThisFrame() && CanStartOffensiveAction())
         {
             lungeCount++;
-            SetAttackAnimation();
+            SetLungeAnimation();
             attackCoroutine = StartCoroutine(Lunge());
         }
 
         if (player1Feint.action.WasPressedThisFrame() && CanStartOffensiveAction())
         {
-            SetAttackAnimation();
+            SetFeintAnimation();
             attackCoroutine = StartCoroutine(Feint());
         }
 
@@ -240,6 +251,18 @@ public class Player1Controls : MonoBehaviour
         transform.position = current;
     }
 
+    private void MoveTowardX(float targetX, float maxDelta)
+    {
+        Vector3 current = transform.position;
+        float rightLimit = arenaRightEdge;
+
+        if (p2 != null)
+            rightLimit = Mathf.Min(rightLimit, p2.transform.position.x - minimumSpacing);
+
+        current.x = Mathf.Clamp(Mathf.MoveTowards(current.x, targetX, maxDelta), arenaLeftEdge, rightLimit);
+        transform.position = current;
+    }
+
     private void HandleFootsteps(bool moving, bool sprinting)
     {
         if (footstepSource == null)
@@ -293,6 +316,7 @@ public class Player1Controls : MonoBehaviour
     {
         BeginAction();
         PlaySfx(attackSound);
+        ConfigureAttackHitbox(pokeHitboxSize, pokeHitboxForwardOffset, pokeHitboxVerticalOffset);
 
         yield return new WaitForSeconds(pokeWindup);
         SetHitboxActive(true);
@@ -308,6 +332,8 @@ public class Player1Controls : MonoBehaviour
     {
         BeginAction();
         PlaySfx(lungeSound);
+        float startX = transform.position.x;
+        ConfigureAttackHitbox(lungeHitboxSize, lungeHitboxForwardOffset);
 
         yield return new WaitForSeconds(0.08f);
         SetHitboxActive(true);
@@ -323,7 +349,15 @@ public class Player1Controls : MonoBehaviour
 
         SetHitboxActive(false);
 
-        yield return new WaitForSeconds(0.2f);
+        elapsed = 0f;
+        while (elapsed < lungeReturnDuration)
+        {
+            MoveTowardX(startX, lungeSpeed * Time.deltaTime);
+            SnapToPixelGrid();
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
         EndAction();
     }
 
@@ -331,7 +365,16 @@ public class Player1Controls : MonoBehaviour
     {
         BeginAction();
         PlaySfx(attackSound);
-        yield return new WaitForSeconds(pokeWindup + 0.08f);
+        ConfigureAttackHitbox(feintHitboxSize, feintHitboxForwardOffset);
+
+        yield return new WaitForSeconds(feintWindup);
+        SetHitboxActive(true);
+
+        yield return new WaitForSeconds(feintActiveTime);
+        SetHitboxActive(false);
+
+        float remainingDuration = Mathf.Max(0f, feintDuration - feintWindup - feintActiveTime);
+        yield return new WaitForSeconds(remainingDuration);
         EndAction();
     }
 
@@ -402,8 +445,29 @@ public class Player1Controls : MonoBehaviour
 
     private void SetHitboxActive(bool active)
     {
-        if (p1Hitbox != null)
-            p1Hitbox.SetActive(active);
+        if (p1Hitbox == null)
+            return;
+
+        p1Hitbox.SetActive(active);
+
+        if (active)
+            p1Hitbox.GetComponent<Player1Attack>()?.CheckCurrentOverlap();
+    }
+
+    private void ConfigureAttackHitbox(Vector2 size, float forwardOffset, float verticalOffset = 0f)
+    {
+        if (p1Hitbox == null)
+            return;
+
+        p1Hitbox.transform.localPosition = new Vector3(forwardOffset, verticalOffset, 0f);
+        p1Hitbox.transform.localScale = Vector3.one;
+
+        BoxCollider2D hitboxCollider = p1Hitbox.GetComponent<BoxCollider2D>();
+        if (hitboxCollider != null)
+        {
+            hitboxCollider.offset = Vector2.zero;
+            hitboxCollider.size = size;
+        }
     }
 
     private void PlaySfx(AudioClip clip)
@@ -434,6 +498,16 @@ public class Player1Controls : MonoBehaviour
         animator.SetTrigger("attack");
     }
 
+    private void SetLungeAnimation()
+    {
+        PlayActionAnimation("p1_lunge");
+    }
+
+    private void SetFeintAnimation()
+    {
+        PlayActionAnimation("p1_feint");
+    }
+
     private void SetParryAnimation()
     {
         if (animator == null)
@@ -441,6 +515,16 @@ public class Player1Controls : MonoBehaviour
 
         animator.ResetTrigger("attack");
         animator.SetTrigger("parry");
+    }
+
+    private void PlayActionAnimation(string stateName)
+    {
+        if (animator == null)
+            return;
+
+        animator.ResetTrigger("attack");
+        animator.ResetTrigger("parry");
+        animator.Play(stateName, 0, 0f);
     }
 
     private void PlayIdleAnimation()

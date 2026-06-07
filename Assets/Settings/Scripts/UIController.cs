@@ -147,8 +147,13 @@ public class UIController : MonoBehaviour
         scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
         scaler.matchWidthOrHeight = 0.5f;
 
+        CreateScoreBackdrop(canvasObject.transform, "P1ScoreBackdrop", new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(24f, -12f), new Vector2(285f, 58f));
+        CreateScoreBackdrop(canvasObject.transform, "P2ScoreBackdrop", new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(-24f, -12f), new Vector2(285f, 58f));
+
         p1HudLabel = CreateHudLabel(canvasObject.transform, "P1Score", new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(32f, -20f), TextAlignmentOptions.TopLeft);
         p2HudLabel = CreateHudLabel(canvasObject.transform, "P2Score", new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(-32f, -20f), TextAlignmentOptions.TopRight);
+        StyleScoreLabel(p1HudLabel);
+        StyleScoreLabel(p2HudLabel);
 
         hudWinPanel = new GameObject("WinPanel", typeof(RectTransform), typeof(UnityEngine.UI.Image));
         hudWinPanel.transform.SetParent(canvasObject.transform, false);
@@ -208,6 +213,34 @@ public class UIController : MonoBehaviour
 
         var eventSystemObject = new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
         DontDestroyOnLoad(eventSystemObject);
+    }
+
+    void CreateScoreBackdrop(Transform parent, string objectName, Vector2 anchorMin, Vector2 anchorMax, Vector2 anchoredPosition, Vector2 sizeDelta)
+    {
+        var backingObject = new GameObject(objectName, typeof(RectTransform), typeof(Image));
+        backingObject.transform.SetParent(parent, false);
+
+        var rect = backingObject.GetComponent<RectTransform>();
+        rect.anchorMin = anchorMin;
+        rect.anchorMax = anchorMax;
+        rect.pivot = new Vector2(anchorMax.x, anchorMax.y);
+        rect.anchoredPosition = anchoredPosition;
+        rect.sizeDelta = sizeDelta;
+
+        var image = backingObject.GetComponent<Image>();
+        image.color = new Color(0f, 0f, 0f, 0.72f);
+    }
+
+    void StyleScoreLabel(TextMeshProUGUI label)
+    {
+        if (label == null)
+            return;
+
+        label.rectTransform.sizeDelta = new Vector2(300f, 64f);
+        label.fontSize = 38;
+        label.color = new Color(1f, 0.94f, 0.58f, 1f);
+        label.outlineColor = Color.black;
+        label.outlineWidth = 0.45f;
     }
 
     TextMeshProUGUI CreateHudLabel(Transform parent, string objectName, Vector2 anchorMin, Vector2 anchorMax, Vector2 anchoredPosition, TextAlignmentOptions alignment)

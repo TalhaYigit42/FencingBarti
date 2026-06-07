@@ -251,6 +251,17 @@ MonoBehaviour:
   pokeWindup: 0.18
   pokeActiveTime: 0.08
   pokeRecovery: 0.14
+  pokeHitboxSize: {x: 1.45, y: 0.42}
+  pokeHitboxForwardOffset: 0.78
+  pokeHitboxVerticalOffset: 0.12
+  lungeHitboxSize: {x: 1.85, y: 0.48}
+  lungeHitboxForwardOffset: 1.02
+  feintHitboxSize: {x: 2, y: 0.56}
+  feintHitboxForwardOffset: 1.05
+  feintWindup: 0.1
+  feintActiveTime: 0.22
+  lungeReturnDuration: 0.15
+  feintDuration: 0.6
   parryStartup: 0.04
   parryActiveTime: 0.2
   parryRecovery: 0.14
@@ -700,8 +711,8 @@ Transform:
   m_GameObject: {fileID: 750726472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0.78, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 546407659}
@@ -750,7 +761,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.45, y: 0.42}
   m_EdgeRadius: 0
 --- !u!114 &750726476
 MonoBehaviour:
@@ -1390,6 +1401,17 @@ MonoBehaviour:
   pokeWindup: 0.18
   pokeActiveTime: 0.08
   pokeRecovery: 0.14
+  pokeHitboxSize: {x: 1.45, y: 0.42}
+  pokeHitboxForwardOffset: 0.78
+  pokeHitboxVerticalOffset: 0.12
+  lungeHitboxSize: {x: 1.85, y: 0.48}
+  lungeHitboxForwardOffset: 1.02
+  feintHitboxSize: {x: 2, y: 0.56}
+  feintHitboxForwardOffset: 1.05
+  feintWindup: 0.1
+  feintActiveTime: 0.22
+  lungeReturnDuration: 0.15
+  feintDuration: 0.6
   parryStartup: 0.04
   parryActiveTime: 0.2
   parryRecovery: 0.14
@@ -1638,8 +1660,8 @@ Transform:
   m_GameObject: {fileID: 1853251342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.25, z: 1}
+  m_LocalPosition: {x: -0.78, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1246852881}
@@ -1693,7 +1715,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.45, y: 0.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1743,7 +1765,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.45, y: 0.42}
   m_EdgeRadius: 0
 --- !u!114 &1853251346
 MonoBehaviour:

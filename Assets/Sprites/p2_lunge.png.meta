@@ -1,58 +1,52 @@
 fileFormatVersion: 2
-guid: c2061aa49d10f704a89a35d50c14c72a
+guid: b7a297ef96224c268d991292cc6d5689
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1159079920985034296
-    second: p2_poke_0
+      213: 5581883462693327346
+    second: p2_lunge_0
   - first:
-      213: 4175097137162952804
-    second: p2_poke_1
+      213: 4638068875178059214
+    second: p2_lunge_1
   - first:
-      213: 3398335007354813573
-    second: p2_poke_2
+      213: 5468312986939164452
+    second: p2_lunge_2
   - first:
-      213: -6077170688868606823
-    second: p2_poke_3
+      213: 5601747280498396558
+    second: p2_lunge_3
   - first:
-      213: -8178439182831724878
-    second: p2_poke_4
+      213: 4905697896878301648
+    second: p2_lunge_4
   - first:
-      213: -6900802075741795913
-    second: p2_poke_5
+      213: 5291298579132032308
+    second: p2_lunge_5
   - first:
-      213: -631991465139019997
-    second: p2_poke_6
+      213: 4806958702762482291
+    second: p2_lunge_6
   - first:
-      213: -5664275647434310714
-    second: p2_poke_7
+      213: 5352607575376071681
+    second: p2_lunge_7
   - first:
-      213: -8221123177667909644
-    second: p2_poke_8
+      213: 4900118029069374570
+    second: p2_lunge_8
   - first:
-      213: -1659287505276756740
-    second: p2_poke_9
+      213: 5670571164287634091
+    second: p2_lunge_9
   - first:
-      213: -8537770508403185364
-    second: p2_poke_10
+      213: 5501577175738303079
+    second: p2_lunge_10
   - first:
-      213: -4941253562766070812
-    second: p2_poke_11
+      213: 5254551435845377224
+    second: p2_lunge_11
   - first:
-      213: -3845745592482400965
-    second: p2_poke_12
+      213: 4650868614382229756
+    second: p2_lunge_12
   - first:
-      213: 7462492043100713981
-    second: p2_poke_13
+      213: 5344417059222728835
+    second: p2_lunge_13
   - first:
-      213: -4505294068096051602
-    second: p2_poke_14
-  - first:
-      213: -1591626392060105598
-    second: p2_poke_15
-  - first:
-      213: 5352852237400181352
-    second: p2_poke_16
+      213: 4752433455569234833
+    second: p2_lunge_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,7 +142,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: p2_poke_0
+      name: p2_lunge_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c13663f3fe1aefe0800000000000000
-      internalID: -1159079920985034296
+      spriteID: 232775de11be4980b7d613f31a1ff705
+      internalID: 5581883462693327346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_1
+      name: p2_lunge_1
       rect:
         serializedVersion: 2
         x: 256
@@ -185,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4602953c9bce0f930800000000000000
-      internalID: 4175097137162952804
+      spriteID: 402f28d5ec2342098646564c63ecebc3
+      internalID: 4638068875178059214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_2
+      name: p2_lunge_2
       rect:
         serializedVersion: 2
         x: 512
@@ -207,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58c782d1faf492f20800000000000000
-      internalID: 3398335007354813573
+      spriteID: 1f5fc1d07fac4634b1b0786427fdaa73
+      internalID: 5468312986939164452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_3
+      name: p2_lunge_3
       rect:
         serializedVersion: 2
         x: 768
@@ -229,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99c129ae47d89aba0800000000000000
-      internalID: -6077170688868606823
+      spriteID: dccdd5ee2c644097b4a6311f34534088
+      internalID: 5601747280498396558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_4
+      name: p2_lunge_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -251,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b6dd2af4e8508e80800000000000000
-      internalID: -8178439182831724878
+      spriteID: 60513f7d74ab4667ba2e44058e2f5b92
+      internalID: 4905697896878301648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_5
+      name: p2_lunge_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -273,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b9c12af21d6b30a0800000000000000
-      internalID: -6900802075741795913
+      spriteID: ea15ebfc438a4cbebb61147bd47be01e
+      internalID: 5291298579132032308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_6
+      name: p2_lunge_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -295,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32f5f436c17ba37f0800000000000000
-      internalID: -631991465139019997
+      spriteID: 869e57d422a34cc785eaa53adc630a06
+      internalID: 4806958702762482291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_7
+      name: p2_lunge_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -317,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6cb38cc2f437461b0800000000000000
-      internalID: -5664275647434310714
+      spriteID: 908b963a37244a55a8217838bdde6637
+      internalID: 5352607575376071681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_8
+      name: p2_lunge_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -339,14 +333,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f7af5cf604b8ed80800000000000000
-      internalID: -8221123177667909644
+      spriteID: 138611ef9996424189fbe6a0dad07995
+      internalID: 4900118029069374570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_9
+      name: p2_lunge_9
       rect:
         serializedVersion: 2
         x: 2304
@@ -361,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfc1cb32ec609f8e0800000000000000
-      internalID: -1659287505276756740
+      spriteID: 0afcb4a7093a48a6ad342010c4ed6c8c
+      internalID: 5670571164287634091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_10
+      name: p2_lunge_10
       rect:
         serializedVersion: 2
         x: 2560
@@ -383,14 +377,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2962d825feb38980800000000000000
-      internalID: -8537770508403185364
+      spriteID: e00cf35b35c14920a336c587ac48e5a8
+      internalID: 5501577175738303079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_11
+      name: p2_lunge_11
       rect:
         serializedVersion: 2
         x: 2816
@@ -405,14 +399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ebe13680142d6bb0800000000000000
-      internalID: -4941253562766070812
+      spriteID: f7f03cbc38cd44b4a6fe35d604cf81a2
+      internalID: 5254551435845377224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_12
+      name: p2_lunge_12
       rect:
         serializedVersion: 2
         x: 3072
@@ -427,14 +421,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b35ff8f52ca21aac0800000000000000
-      internalID: -3845745592482400965
+      spriteID: 273e1367b38141a1956127f69027aed6
+      internalID: 4650868614382229756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_13
+      name: p2_lunge_13
       rect:
         serializedVersion: 2
         x: 3328
@@ -449,14 +443,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df37238a9f8109760800000000000000
-      internalID: 7462492043100713981
+      spriteID: db0d72b844954b2e9e27228c218fd49c
+      internalID: 5344417059222728835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_14
+      name: p2_lunge_14
       rect:
         serializedVersion: 2
         x: 3584
@@ -471,52 +465,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e66d5764aeaf971c0800000000000000
-      internalID: -4505294068096051602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: p2_poke_15
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.69, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 28cee1eaa3869e9e0800000000000000
-      internalID: -1591626392060105598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: p2_poke_16
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.69, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 86a8461dfb6294a40800000000000000
-      internalID: 5352852237400181352
+      spriteID: 3d73091370ee4154b8178b11f464f7b3
+      internalID: 4752433455569234833
       vertices: []
       indices: 
       edges: []
@@ -525,7 +475,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 83df98306af440488dc3dac8119d71df
     internalID: 0
     vertices: []
     indices: 
@@ -535,23 +485,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      p2_poke_0: -1159079920985034296
-      p2_poke_1: 4175097137162952804
-      p2_poke_10: -8537770508403185364
-      p2_poke_11: -4941253562766070812
-      p2_poke_12: -3845745592482400965
-      p2_poke_13: 7462492043100713981
-      p2_poke_14: -4505294068096051602
-      p2_poke_15: -1591626392060105598
-      p2_poke_16: 5352852237400181352
-      p2_poke_2: 3398335007354813573
-      p2_poke_3: -6077170688868606823
-      p2_poke_4: -8178439182831724878
-      p2_poke_5: -6900802075741795913
-      p2_poke_6: -631991465139019997
-      p2_poke_7: -5664275647434310714
-      p2_poke_8: -8221123177667909644
-      p2_poke_9: -1659287505276756740
+      p2_lunge_0: 5581883462693327346
+      p2_lunge_1: 4638068875178059214
+      p2_lunge_2: 5468312986939164452
+      p2_lunge_3: 5601747280498396558
+      p2_lunge_4: 4905697896878301648
+      p2_lunge_5: 5291298579132032308
+      p2_lunge_6: 4806958702762482291
+      p2_lunge_7: 5352607575376071681
+      p2_lunge_8: 4900118029069374570
+      p2_lunge_9: 5670571164287634091
+      p2_lunge_10: 5501577175738303079
+      p2_lunge_11: 5254551435845377224
+      p2_lunge_12: 4650868614382229756
+      p2_lunge_13: 5344417059222728835
+      p2_lunge_14: 4752433455569234833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

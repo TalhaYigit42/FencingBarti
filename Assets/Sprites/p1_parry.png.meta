@@ -35,9 +35,6 @@ TextureImporter:
   - first:
       213: -8092099673105867769
     second: p1_parry_10
-  - first:
-      213: -2675607862094865299
-    second: p1_parry_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -81,7 +78,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -374,28 +371,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: p1_parry_11
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.31, y: 0.21}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6cd79d43d45edad0800000000000000
-      internalID: -2675607862094865299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -413,7 +388,6 @@ TextureImporter:
       p1_parry_0: 5118662850725856433
       p1_parry_1: 1626220372517879054
       p1_parry_10: -8092099673105867769
-      p1_parry_11: -2675607862094865299
       p1_parry_2: 4667099049513230546
       p1_parry_3: -1794544407612309505
       p1_parry_4: 1690089144478885906

@@ -1,58 +1,73 @@
 fileFormatVersion: 2
-guid: c2061aa49d10f704a89a35d50c14c72a
+guid: 85713647fd8f42bdbad46a3029d6e398
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1159079920985034296
-    second: p2_poke_0
+      213: 5290290986665129339
+    second: p1_feint_0
   - first:
-      213: 4175097137162952804
-    second: p2_poke_1
+      213: 4864202473941192784
+    second: p1_feint_1
   - first:
-      213: 3398335007354813573
-    second: p2_poke_2
+      213: 5251249597324819127
+    second: p1_feint_2
   - first:
-      213: -6077170688868606823
-    second: p2_poke_3
+      213: 4965914035696534399
+    second: p1_feint_3
   - first:
-      213: -8178439182831724878
-    second: p2_poke_4
+      213: 4984197221826008875
+    second: p1_feint_4
   - first:
-      213: -6900802075741795913
-    second: p2_poke_5
+      213: 5370946958886531084
+    second: p1_feint_5
   - first:
-      213: -631991465139019997
-    second: p2_poke_6
+      213: 5455297131467310042
+    second: p1_feint_6
   - first:
-      213: -5664275647434310714
-    second: p2_poke_7
+      213: 5361557105639995950
+    second: p1_feint_7
   - first:
-      213: -8221123177667909644
-    second: p2_poke_8
+      213: 4910167900322741779
+    second: p1_feint_8
   - first:
-      213: -1659287505276756740
-    second: p2_poke_9
+      213: 4717245826846619047
+    second: p1_feint_9
   - first:
-      213: -8537770508403185364
-    second: p2_poke_10
+      213: 5342733226882637913
+    second: p1_feint_10
   - first:
-      213: -4941253562766070812
-    second: p2_poke_11
+      213: 4617483241853697941
+    second: p1_feint_11
   - first:
-      213: -3845745592482400965
-    second: p2_poke_12
+      213: 4952272127267722491
+    second: p1_feint_12
   - first:
-      213: 7462492043100713981
-    second: p2_poke_13
+      213: 5647079896176448000
+    second: p1_feint_13
   - first:
-      213: -4505294068096051602
-    second: p2_poke_14
+      213: 4920248685005897558
+    second: p1_feint_14
   - first:
-      213: -1591626392060105598
-    second: p2_poke_15
+      213: 5272678445289848900
+    second: p1_feint_15
   - first:
-      213: 5352852237400181352
-    second: p2_poke_16
+      213: 4966585593982331219
+    second: p1_feint_16
+  - first:
+      213: 5070395480528593663
+    second: p1_feint_17
+  - first:
+      213: 5018677335526856715
+    second: p1_feint_18
+  - first:
+      213: 5085277551557666141
+    second: p1_feint_19
+  - first:
+      213: 5758299252722160578
+    second: p1_feint_20
+  - first:
+      213: 5085663219600082969
+    second: p1_feint_21
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,7 +163,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: p2_poke_0
+      name: p1_feint_0
       rect:
         serializedVersion: 2
         x: 0
@@ -156,21 +171,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c13663f3fe1aefe0800000000000000
-      internalID: -1159079920985034296
+      spriteID: afbb1546c2e242d797f19ddddc28964b
+      internalID: 5290290986665129339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_1
+      name: p1_feint_1
       rect:
         serializedVersion: 2
         x: 256
@@ -178,21 +193,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4602953c9bce0f930800000000000000
-      internalID: 4175097137162952804
+      spriteID: f9b24d56246741a7b88b5a880b3e8b1e
+      internalID: 4864202473941192784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_2
+      name: p1_feint_2
       rect:
         serializedVersion: 2
         x: 512
@@ -200,21 +215,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58c782d1faf492f20800000000000000
-      internalID: 3398335007354813573
+      spriteID: 9b029c2907d04dc88c850582e2b53dbe
+      internalID: 5251249597324819127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_3
+      name: p1_feint_3
       rect:
         serializedVersion: 2
         x: 768
@@ -222,21 +237,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99c129ae47d89aba0800000000000000
-      internalID: -6077170688868606823
+      spriteID: f4b9e1606b28424ab13fae9dd43060b6
+      internalID: 4965914035696534399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_4
+      name: p1_feint_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -244,21 +259,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b6dd2af4e8508e80800000000000000
-      internalID: -8178439182831724878
+      spriteID: 5d97e9b1421446888bd385719d561776
+      internalID: 4984197221826008875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_5
+      name: p1_feint_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -266,21 +281,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b9c12af21d6b30a0800000000000000
-      internalID: -6900802075741795913
+      spriteID: 644fa6d2b35a4ddf9cc39f983b7ef115
+      internalID: 5370946958886531084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_6
+      name: p1_feint_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -288,21 +303,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32f5f436c17ba37f0800000000000000
-      internalID: -631991465139019997
+      spriteID: 88dfc6d136a84aba9da014c205436f58
+      internalID: 5455297131467310042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_7
+      name: p1_feint_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -310,21 +325,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6cb38cc2f437461b0800000000000000
-      internalID: -5664275647434310714
+      spriteID: fc519b483e5c4237a0c2e5c5de2ef469
+      internalID: 5361557105639995950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_8
+      name: p1_feint_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -332,21 +347,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f7af5cf604b8ed80800000000000000
-      internalID: -8221123177667909644
+      spriteID: 6dae36949cb041d8a3f4c40e9c3ae6a9
+      internalID: 4910167900322741779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_9
+      name: p1_feint_9
       rect:
         serializedVersion: 2
         x: 2304
@@ -354,21 +369,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfc1cb32ec609f8e0800000000000000
-      internalID: -1659287505276756740
+      spriteID: b44a5517de8244b1bae26a9d9ca8f51d
+      internalID: 4717245826846619047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_10
+      name: p1_feint_10
       rect:
         serializedVersion: 2
         x: 2560
@@ -376,21 +391,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2962d825feb38980800000000000000
-      internalID: -8537770508403185364
+      spriteID: cdb48d8e646e436a975fbd82d5db8087
+      internalID: 5342733226882637913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_11
+      name: p1_feint_11
       rect:
         serializedVersion: 2
         x: 2816
@@ -398,21 +413,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ebe13680142d6bb0800000000000000
-      internalID: -4941253562766070812
+      spriteID: 316a2f806d3f4e25af1cef1f08252d20
+      internalID: 4617483241853697941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_12
+      name: p1_feint_12
       rect:
         serializedVersion: 2
         x: 3072
@@ -420,21 +435,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b35ff8f52ca21aac0800000000000000
-      internalID: -3845745592482400965
+      spriteID: e5f5974d5a8d49859e71d7edaf0eb417
+      internalID: 4952272127267722491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_13
+      name: p1_feint_13
       rect:
         serializedVersion: 2
         x: 3328
@@ -442,21 +457,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df37238a9f8109760800000000000000
-      internalID: 7462492043100713981
+      spriteID: df43f37955be4dbd99e9b05a6bf82dae
+      internalID: 5647079896176448000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_14
+      name: p1_feint_14
       rect:
         serializedVersion: 2
         x: 3584
@@ -464,21 +479,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e66d5764aeaf971c0800000000000000
-      internalID: -4505294068096051602
+      spriteID: 704f705beb2d4da08e8cbe9eab62b0d5
+      internalID: 4920248685005897558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_15
+      name: p1_feint_15
       rect:
         serializedVersion: 2
         x: 3840
@@ -486,21 +501,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28cee1eaa3869e9e0800000000000000
-      internalID: -1591626392060105598
+      spriteID: 9446041efa774462992a6837d6e5ac88
+      internalID: 5272678445289848900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: p2_poke_16
+      name: p1_feint_16
       rect:
         serializedVersion: 2
         x: 4096
@@ -508,15 +523,125 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.69, y: 0.21}
+      pivot: {x: 0.31, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86a8461dfb6294a40800000000000000
-      internalID: 5352852237400181352
+      spriteID: c029bf2440bf4a6194033359704b9837
+      internalID: 4966585593982331219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_feint_17
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.31, y: 0.21}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc164126b0f42758b40906523db722d
+      internalID: 5070395480528593663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_feint_18
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.31, y: 0.21}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e104f906243e4ce684f5ed84c376593a
+      internalID: 5018677335526856715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_feint_19
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.31, y: 0.21}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 067505acf9c543c2bfafea0bfc20057d
+      internalID: 5085277551557666141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_feint_20
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.31, y: 0.21}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0ab4ce593e4ac3ba68f49e9760837e
+      internalID: 5758299252722160578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_feint_21
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.31, y: 0.21}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba7d24ea11f4e009182d793549c2494
+      internalID: 5085663219600082969
       vertices: []
       indices: 
       edges: []
@@ -525,7 +650,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0917fd686be648688236d13c9b210ebe
     internalID: 0
     vertices: []
     indices: 
@@ -535,23 +660,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      p2_poke_0: -1159079920985034296
-      p2_poke_1: 4175097137162952804
-      p2_poke_10: -8537770508403185364
-      p2_poke_11: -4941253562766070812
-      p2_poke_12: -3845745592482400965
-      p2_poke_13: 7462492043100713981
-      p2_poke_14: -4505294068096051602
-      p2_poke_15: -1591626392060105598
-      p2_poke_16: 5352852237400181352
-      p2_poke_2: 3398335007354813573
-      p2_poke_3: -6077170688868606823
-      p2_poke_4: -8178439182831724878
-      p2_poke_5: -6900802075741795913
-      p2_poke_6: -631991465139019997
-      p2_poke_7: -5664275647434310714
-      p2_poke_8: -8221123177667909644
-      p2_poke_9: -1659287505276756740
+      p1_feint_0: 5290290986665129339
+      p1_feint_1: 4864202473941192784
+      p1_feint_2: 5251249597324819127
+      p1_feint_3: 4965914035696534399
+      p1_feint_4: 4984197221826008875
+      p1_feint_5: 5370946958886531084
+      p1_feint_6: 5455297131467310042
+      p1_feint_7: 5361557105639995950
+      p1_feint_8: 4910167900322741779
+      p1_feint_9: 4717245826846619047
+      p1_feint_10: 5342733226882637913
+      p1_feint_11: 4617483241853697941
+      p1_feint_12: 4952272127267722491
+      p1_feint_13: 5647079896176448000
+      p1_feint_14: 4920248685005897558
+      p1_feint_15: 5272678445289848900
+      p1_feint_16: 4966585593982331219
+      p1_feint_17: 5070395480528593663
+      p1_feint_18: 5018677335526856715
+      p1_feint_19: 5085277551557666141
+      p1_feint_20: 5758299252722160578
+      p1_feint_21: 5085663219600082969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
