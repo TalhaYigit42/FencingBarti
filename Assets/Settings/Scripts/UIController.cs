@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class UIController : MonoBehaviour
     private TextMeshProUGUI hudWinLabel;
     private TextMeshProUGUI hudStatsHeaderLabel;
     private TextMeshProUGUI hudStatsLabel;
+    private Button playAgainButton;
+    private Button mainMenuButton;
     private Player1Controls player1Stats;
     private Player2Controls player2Stats;
 
@@ -54,6 +58,7 @@ public class UIController : MonoBehaviour
         if (doc != null)
             doc.enabled = false;
 
+        EnsureEventSystem();
         BuildRuntimeHud();
 
         UpdateLabels();
@@ -187,10 +192,22 @@ public class UIController : MonoBehaviour
         hudStatsLabel.lineSpacing = -2f;
         hudStatsLabel.textWrappingMode = TextWrappingModes.Normal;
 
-        var playAgainButton = CreateHudButton(board.transform, "PlayAgainButton", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 56f), new Vector2(220f, 52f), "PLAY AGAIN");
+        playAgainButton = CreateHudButton(board.transform, "PlayAgainButton", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(-118f, 56f), new Vector2(180f, 52f), "PLAY AGAIN");
         playAgainButton.onClick.AddListener(RestartGameplayScene);
 
+        mainMenuButton = CreateHudButton(board.transform, "MainMenuButton", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(118f, 56f), new Vector2(180f, 52f), "MAIN MENU");
+        mainMenuButton.onClick.AddListener(ReturnToMainMenu);
+
         hudWinPanel.SetActive(false);
+    }
+
+    void EnsureEventSystem()
+    {
+        if (EventSystem.current != null)
+            return;
+
+        var eventSystemObject = new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
+        DontDestroyOnLoad(eventSystemObject);
     }
 
     TextMeshProUGUI CreateHudLabel(Transform parent, string objectName, Vector2 anchorMin, Vector2 anchorMax, Vector2 anchoredPosition, TextAlignmentOptions alignment)
@@ -312,5 +329,10 @@ public class UIController : MonoBehaviour
     void RestartGameplayScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Startscreen");
     }
 }
